@@ -298,3 +298,21 @@ def test_boostedprob_sequence(model):
     estimator = BoostedProbSequence()
     ue = estimate_uncertainty(model, estimator, INPUT)
     assert isinstance(ue.uncertainty, float)
+
+
+def test_pyes_top_right(model):
+    estimator = PYesTopRight()
+    ue = estimate_uncertainty(model, estimator, INPUT)
+    assert isinstance(ue.uncertainty, float)
+
+
+def test_pyes_naive_avg(model):
+    estimator = PYesNaiveAvg()
+    ue = estimate_uncertainty(model, estimator, INPUT)
+    assert isinstance(ue.uncertainty, float)
+
+
+def test_internal_confidence(model):
+    estimator = InternalConfidence()
+    ue = estimate_uncertainty(model, estimator, INPUT)
+    assert isinstance(ue.uncertainty, float)

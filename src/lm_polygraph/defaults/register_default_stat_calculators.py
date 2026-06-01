@@ -148,6 +148,16 @@ def register_default_stat_calculators(
             },
         )
         _register(AttentionForwardPassCalculator)
+        _register(
+            InternalConfidenceProbsCalculator,
+            "lm_polygraph.defaults.stat_calculator_builders.default_InternalConfidenceProbsCalculator",
+            {
+                "yes_token": "Yes",
+                "no_token": "No",
+                "last_k_tokens": 6,
+                "prompt_template": "Respond only with Yes or No to indicate whether you are capable of answering the following question. {q}",
+            },
+        )
     elif model_type == "VisualLM":
         _register(
             GreedyProbsVisualCalculator,
